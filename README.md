@@ -6,10 +6,6 @@ You will require Processing software to run this code.
 18/12/2022 Fili Fili Project V2 By Anjum9694 an optimized version of the arduino code from scratch with wireless infrared capability.  
 07/11/2022 Printed circuit board driver and a 3D printed control box.
 
-# Fili Fili Project
-
-Interactive kids quiz game with three buttons created by Maldives Polytechnic.  
-
 ## Description
 
 The original goal of this project is to make teaching Dhivehi more interactive for kids. This project can be used by teachers as an aid in primary education.
