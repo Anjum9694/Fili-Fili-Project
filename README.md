@@ -1,4 +1,4 @@
-# Fili-Fili-Project
+# Fili Fili Project
 Interactive kids game originally created by Fahud, for Maldives Polytechnic.
 You will require Processing software to run this code.
 
