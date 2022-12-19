@@ -23,6 +23,7 @@ boolean prevVal2 = false;
 void setup() {
   String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
+  size(displayWidth, displayHeight); // Dynamically sets screen resolution, comment out if it causes problems.
   fullScreen(); 
   img = loadImage("View.jpg");
   img2 = loadImage("wtld.png");
