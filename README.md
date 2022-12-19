@@ -13,7 +13,6 @@
 
 The original goal of this project is to make teaching Dhivehi more interactive for kids. This project can be used by teachers as an aid in primary education.
 
-## Getting Started
 
 ### Dependencies
 
