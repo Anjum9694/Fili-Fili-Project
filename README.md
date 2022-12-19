@@ -32,4 +32,4 @@ The original goal of this project is to make teaching Dhivehi more interactive f
 
 ## License
 
-This project is licensed under the  Creative Commons License. Commercial use of this project is prohibited.
+This project is licensed under the  Creative Commons License.
