@@ -36,4 +36,5 @@ The original goal of this project is to make teaching Dhivehi more interactive f
 
 ## License
 
-This project is licensed under the  Creative Commons License.
+This project is licensed under the  Creative Commons License.  
+![alt text](https://upload.wikimedia.org/wikipedia/en/a/aa/Maldives_Polytechnic_Logo.jpg)
