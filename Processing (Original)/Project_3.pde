@@ -21,20 +21,8 @@ boolean wrongVal = false;
 boolean prevVal2 = false;
 
 void setup() {
-  String[] serialPorts = Serial.list();
-  String portName = null;
-  for (int i = 0; i < serialPorts.length; i++) {
-    if (serialPorts[i].matches("^COM[0-9]{1,2}$")) {
-      portName = serialPorts[i];
-      break;
-    }
-  }
-  if (portName == null) {
-    println("No serial port found");
-  } else {
-    myPort = new Serial(this, portName, 9600);
-  }
-  size(displayWidth, displayHeight); // Dynamically sets screen resolution, comment out if it causes problems.
+  String portName = Serial.list()[0];
+  myPort = new Serial(this, portName, 9600);
   fullScreen(); 
   img = loadImage("View.jpg");
   img2 = loadImage("wtld.png");
