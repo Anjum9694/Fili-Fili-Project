@@ -1,6 +1,5 @@
 # Fili Fili Project V2
-Interactive kids game originally created by Fahud, for Maldives Polytechnic.
-You will require Processing software to run this code.
+Interactive kids game originally by Maldives Polytechnic.
 
 ### Updates
 
@@ -18,6 +17,7 @@ The original goal of this project is to make teaching Dhivehi more interactive f
 
 ### Dependencies
 
+* Arduino IDE
 * Processing IDE
 * Minim Audio library in Processing for compiling the code.
 
