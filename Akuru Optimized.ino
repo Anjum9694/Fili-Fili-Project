@@ -51,7 +51,7 @@ void loop() {
     long sensorValue = sensorsArr[i].capacitiveSensor(10);
     if (sensorValue > threshold) {
       // Play the appropriate audio file for this sensor
-      mp3.playTrack(i + 1); // Rename the mp3 files from haa to chaviyani as 1.mp3, 2.mp3.. until 24.mp3
+      mp3.playTrack(i + 1); // The file names from Haa to Chaviyani must be as 1.mp3, 2.mp3.. until 24.mp3
       delay(200);  // the delay for sound to finish playing
     }
   }
