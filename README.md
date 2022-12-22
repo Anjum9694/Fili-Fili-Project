@@ -3,6 +3,8 @@
 
 ### Updates
 
+* 22/12/2022 Optimization by Anjum9694 for Akuru Game by Yazeen
+
 * 19/12/2022 Improvements to the Processing interface code.  
 
 * 18/12/2022 Released Fili Fili Project V2 By Anjum9694 an optimized version of the arduino code from scratch with wireless infrared capability.  
