@@ -1,5 +1,5 @@
 # Fili Fili Project V2
-#### Interactive kids game by Maldives Polytechnic.
+#### Interactive kids game by Maldives Polytechnic
 
 ### Updates
 
@@ -20,7 +20,7 @@ The original goal of this project is to make teaching Dhivehi more interactive f
 
 * Arduino IDE
 * Processing IDE
-* Minim Audio library in Processing for compiling the code.
+* Minim Audio library in Processing for compiling the code
 
 ## Authors
 
