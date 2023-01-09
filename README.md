@@ -3,7 +3,7 @@
 
 ### Updates
 
-* 09/1/2022  Added Transmitter and Receiver code that uses 433MHz modules.
+* 09/1/2022   Added Transmitter and Receiver code that uses 433MHz modules.
 
 * 22/12/2022 Optimization by Anjum9694 for Akuru Game by Yazeen.
 
