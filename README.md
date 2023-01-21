@@ -39,6 +39,10 @@ The original goal of this project is to make teaching Dhivehi more interactive f
 
 ## License
 
-This project is licensed under the  Creative Commons License.  
+This project is licensed under the Creative Commons License. This means that it is free for non-commercial use, you must give appropriate credit, and it must be distributed under the same license. It is prohibited to use it for commercial purposes.
+
+It is important to note that under this license, derivative works must be shared under the same license. This means that if you make any changes to the project, you must share those changes with the community and allow others to use and build upon the code.
+
+Please note that Maldives Polytechnic retains ownership of the code and reserves the right to make changes to the license in the future.  
 
 ![alt text](https://upload.wikimedia.org/wikipedia/en/a/aa/Maldives_Polytechnic_Logo.jpg)   <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" width="255" height="100">
