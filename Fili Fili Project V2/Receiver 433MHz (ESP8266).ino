@@ -2,47 +2,48 @@
 // This code allows wireless radio receiving with ESP8266
 // https://github.com/Anjum9694
 
-#include <RH_ASK.h> // Include the Radiohead library
-#include <SPI.h> // Not actually used but needed to compile
+#include <RCSwitch.h>
+#include <SPI.h>
+#define LED_BUILTIN 2
+#include <Arduino.h>
 
-// Declare a global instance of the RH_ASK class. By default this uses pin D6 (use SD0 if it doesn't work) on ESP8266.
-RH_ASK driver;
+// Initialize a global RCSwitch instance
+RCSwitch driver = RCSwitch();
 
-
-// Define a flag variable to track whether the specific code has been received
+// Initialize flag variables to track button press
 bool blueFlag = false;
 bool greenFlag = false;
 bool redFlag = false;
 
-// Define the duration for which the flag should stay true (in milliseconds) so it acts like a push button
+// Define the duration for which the flag should stay true
 const int blueDelay = 2000;
 const int greenDelay = 2000;
 const int redDelay = 2000;
 
-// Define a timer variable to track the elapsed time since the flag was set to true
+// Timer variables to track the elapsed time since the flag was set
 unsigned long blueTimer = 0;
 unsigned long greenTimer = 0;
 unsigned long redTimer = 0;
 
-// Start at page 1
+// Initialize page variable
 int page = 1;
 
-// Initialize all logic flags
+// Initialize logic flags
 boolean buttonVal = false;
 boolean prevVal = false;
 boolean wrongVal = false;
 boolean prevVal2 = false;
 
 void setup() {
-  Serial.begin(9600);   // Debugging only
-  if (!driver.init())  // Initialize the Radiohead library
-    Serial.println("init failed");
-  Serial.println("Fili Fili Project 433MHz receiver has started successfully.");
+    Serial.begin(9600);
+    // Enable the receiver on pin 12 (D6)
+    driver.enableReceive(12);
+    Serial.println("Fili Fili Project 433MHz receiver has started successfully.");
 }
 
 void loop() {
-  wirelesssignal();
-      switch (page) {
+    wirelesssignal();
+    switch (page) {
       case 1: {
           if (blueFlag || greenFlag || redFlag) {
             buttonVal = true;
@@ -468,41 +469,56 @@ void loop() {
           delay(200);
           break;
         }
-
-
     }
 }
 
-void wirelesssignal() {
-  uint8_t buf[RH_ASK_MAX_MESSAGE_LEN];
-  uint8_t buflen = sizeof(buf);
-  if (driver.recv(buf, &buflen)) { // Check if there is a message available
-    unsigned long code = 0;
-    memcpy(&code, buf, sizeof(code)); // Copy the received message into the code variable
 
-    if (code == 0xFFFFF1) { // Blue code
-      Serial.println("Blue button has been pressed.");
-      blueFlag = true;
-      blueTimer = millis();
-    } else if (code == 0xFFFFF2) { // Green code
-      Serial.println("Green button has been pressed.");
-      greenFlag = true;
-      greenTimer = millis();
-    } else if (code == 0xFFFFF3) { // Red code
-      Serial.println("Red button has been pressed.");
-      redFlag = true;
-      redTimer = millis();
+void wirelesssignal() {
+    if (driver.available()) {
+        // Check if there is a signal available
+        unsigned long code = driver.getReceivedValue();
+        if (code != 0) {
+            if (code == 0xFFFFF1) {
+                // Check the code if it's the code for blue button
+                Serial.println("Blue button has been pressed.");
+                blueFlag = true;
+                blueTimer = millis();
+                digitalWrite(LED_BUILTIN, HIGH); // turn on LED
+                delay(500); // wait for 0.5 seconds
+                digitalWrite(LED_BUILTIN, LOW); // turn off LED
+            }
+            if (code == 0xFFFFF2) {
+                // Check the code if it's the code for green button
+                Serial.println("Green button has been pressed.");
+                greenFlag = true;
+                greenTimer = millis();
+                digitalWrite(LED_BUILTIN, HIGH); // turn on LED
+                delay(500); // wait for 0.5 seconds
+                digitalWrite(LED_BUILTIN, LOW); // turn off LED
+            }
+            if (code == 0xFFFFF3) {
+                // Check the code if it's the code for red button
+                Serial.println("Red button has been pressed.");
+                redFlag = true;
+                redTimer = millis();
+                digitalWrite(LED_BUILTIN, HIGH); // turn on LED
+                delay(500); // wait for 0.5 seconds
+                digitalWrite(LED_BUILTIN, LOW); // turn off LED
+            }
+        }
+        // Reset the available status to prepare for next transmission
+        driver.resetAvailable();
     }
-  }
-  if (blueFlag && (millis() - blueTimer > blueDelay)) { // Blue debounce timer reset
-    // Set the flag to false
-    blueFlag = false;
-  }
-  if (greenFlag && (millis() - greenTimer > greenDelay)) { // Green debounce timer reset
-    greenFlag = false;
-  }
-  if (redFlag && (millis() - redTimer > redDelay)) { // Red debounce timer reset
-    // Set the flag to false
-    redFlag = false;
+    if (blueFlag && (millis() - blueTimer > blueDelay)) {
+        // Debounce timer for blue button
+        blueFlag = false;
+    }
+    if (greenFlag && (millis() - greenTimer > greenDelay)) {
+        // Debounce timer for green button
+        greenFlag = false;
+    }
+    if (redFlag && (millis() - redTimer > redDelay)) { // Red debounce timer reset
+        // Debounce timer for red button
+        redFlag = false;
   }
 }
