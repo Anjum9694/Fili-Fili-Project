@@ -5,7 +5,6 @@ The Fili Fili Project V2 is an interactive game designed to make teaching the Dh
 ## Updates
 
 - **09/01/2022**: Implemented Transmitter and Receiver code utilizing 433MHz modules for wireless capabilities.
-- **22/12/2022**: Optimized the game design by Anjum9694.
 - **19/12/2022**: Improved the Processing interface code for enhanced user experience.
 - **18/12/2022**: Released Fili Fili Project V2, a reimplementation of the arduino code with added wireless infrared capability.
 - **07/11/2022**: Developed a Printed Circuit Board driver and a 3D printed control box for hardware controls.
